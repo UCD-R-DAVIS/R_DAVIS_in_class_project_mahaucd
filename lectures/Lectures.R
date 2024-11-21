@@ -336,5 +336,27 @@ table(surveys_wt_cat$weight_cat)
 
 
 ## What if I want to switch order of weight_cat? factor!
+# Lecture 8 ----
+library(lubridate)
+seq(mdy("01-01-2020"), mdy("10-01-2020"), 1)
+mdy("01-01-2020") - months(2)
+decimal_date(mdy("10-01-2020"))
+date_decimal(decimal_date(mdy("10-01-2020")))
 
 
+library(gapminder)
+d <- gapminder::gapminder
+
+plotCountry = function(data, Country) {
+  g = data %>% filter(country == Country) %>% 
+  ggplot(aes(x = year, y = pop)) +
+  geom_point() +
+  theme_solarized() +
+  xlab("Population") + ylab("Year") + 
+  ggtitle(("Population Over Time"))
+  return(g)
+}
+
+plotCountry(d, "Afghanistan")
+
+# Lecture 9 ----
